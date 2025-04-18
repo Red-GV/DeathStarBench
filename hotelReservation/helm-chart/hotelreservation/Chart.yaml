@@ -6,13 +6,9 @@ version: 0.1.0
 appVersion: "1.16.0"
 
 dependencies:
-  - name: consul
-    version: 0.1.0
   - name: frontend
     version: 0.1.0
   - name: geo
-    version: 0.1.0
-  - name: jaeger
     version: 0.1.0
   - name: memcached-profile
     version: 0.1.0
@@ -44,3 +40,11 @@ dependencies:
     version: 0.1.0
   - name: user
     version: 0.1.0
+  - name: consul
+    version: 1.6.3
+    repository: https://helm.releases.hashicorp.com
+    condition: consul.enabled
+  - name: jaeger
+    version: 3.4.1
+    repository: https://jaegertracing.github.io/helm-charts
+    condition: jaeger.enabled

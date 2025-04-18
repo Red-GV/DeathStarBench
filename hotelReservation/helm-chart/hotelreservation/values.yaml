@@ -38,3 +38,33 @@ global:
       pvprovisioner:
         enabled: false
         storageClassName: ceph-fs   # optional
+
+consul:
+  enabled: true
+  fullnameOverride: consul
+  dns:
+    enabled: false
+  connectInject:
+    enabled: false
+
+jaeger:
+  enabled: true
+  fullnameOverride: jaeger
+  provisionDataStore:
+    cassandra: false
+  allInOne:
+    enabled: true
+    args:
+      - "--memory.max-traces=5000"
+      - "--query.base-path=/jaeger/ui"
+  resources:
+      limits:
+        memory: 400Mi
+  storage: 
+    type: memory
+  agent:
+    enabled: false
+  collector:
+    enabled: false
+  query:
+    enabled: false
